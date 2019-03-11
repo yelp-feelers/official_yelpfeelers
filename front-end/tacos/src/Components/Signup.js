@@ -1,8 +1,8 @@
 import React, { Component } from "react";
+import { signup } from "../Actions/LoginAndSignup";
 import { connect } from "react-redux";
-import { login } from "../Actions/LoginAndSignup";
 
-class Login extends Component {
+class Signup extends Component {
   state = {
     credentials: {
       username: "",
@@ -19,15 +19,15 @@ class Login extends Component {
     });
   };
 
-  login = e => {
+  signup = e => {
     e.preventDefault();
-    this.props.login(this.state.credentials)
+    this.props.signup(this.state.credentials)
   };
 
   render() {
     return (
       <div>
-        <form onSubmit={this.login}>
+        <form onSubmit={this.signup}>
           <input
             name="username"
             type="text"
@@ -44,7 +44,7 @@ class Login extends Component {
             onChange={this.handleChanges}
           />
           <br />
-          <button>LOG IN</button>
+          <button>SIGN UP</button>
         </form>
       </div>
     );
@@ -59,5 +59,5 @@ const mapStateToProps = state => ({
 
 export default connect(
   mapStateToProps,
-  { login }
-)(Login);
+  { signup }
+)(Signup);
