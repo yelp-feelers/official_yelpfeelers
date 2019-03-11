@@ -8,11 +8,7 @@ export const LOGIN_SUCCESS = 'LOGIN_SUCCESS'
 
 //action creators - login for login component, getTacos for CDM within protected home route
 
-export const login = something => dispatch => {
-
-}
-
-export const getTacos = () => dispatch => {
+export const login = creds => dispatch => {
     dispatch({ type: LOGIN_START })
     //axios request
     const endpoint = "http://localhost:5000/api/auth/login";
@@ -23,4 +19,8 @@ export const getTacos = () => dispatch => {
         localStorage.setItem("jwt", res.data.payload);
         dispatch({ type: LOGIN_SUCCESS});
     })
+}
+
+export const getTacos = () => dispatch => {
+    
 }
