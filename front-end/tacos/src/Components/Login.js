@@ -17,15 +17,36 @@ class Login extends Component {
         });
     };
 
+    login = e => {
+        e.preventDefault();
+        this.props.login(this.state.credentials(()=>{
+            this.props.history.push("/tacos")
+        }))
+    }
+
     
 
 
     render() {
         return (
             <div>
-                <form>
-                    <input />
-                    <input />
+                <form onSubmit={this.login}>
+                    <input
+                    name="username"
+                    type="text"
+                    placeholder="username"
+                    value={this.state.credentials.username}
+                    onChange={this.handleChanges}
+                     />
+                     <br />
+                    <input 
+                    name="password"
+                    type="text"
+                    placeholder="password"
+                    value={this.state.credentials.password}
+                    onChange={this.handleChanges}
+                    />
+                    <br />
                     <button />
                 </form>
             </div>

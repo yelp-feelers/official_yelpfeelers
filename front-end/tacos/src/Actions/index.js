@@ -13,5 +13,14 @@ export const login = something => dispatch => {
 }
 
 export const getTacos = () => dispatch => {
+    dispatch({ type: LOGIN_START })
     //axios request
+    const endpoint = "http://localhost:5000/api/auth/login";
+
+    axios.post(endpoint, creds)
+    .then(res => {
+        // check format of res to confirm payload location
+        localStorage.setItem("jwt", res.data.payload);
+        dispatch({ type: LOGIN_SUCCESS});
+    })
 }
