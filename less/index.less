@@ -27,10 +27,10 @@
 
 
 body{
-    background-color: rgb(238, 238, 238);
+    background-color: rgb(228, 227, 227);
     max-width: 1200px;
     margin: 0 auto;
-    //background-image: url('https://i.pinimg.com/originals/ab/cf/d2/abcfd29ccfa5d77c15e0a07e4b75a542.jpg');
+    background-image: url('https://i.pinimg.com/originals/ab/cf/d2/abcfd29ccfa5d77c15e0a07e4b75a542.jpg');
     background-attachment: fixed;
 }
 
@@ -38,26 +38,29 @@ header{
     display: flex;
     align-items: center;
     //mobile
+
     @media (max-width: 780px ){
         flex-direction: column;
+        
     }
 
-    h1{
+    .mobile{
         font-size: 35px;
-        padding: 10px;
-        border-bottom: 1px solid black;
-        border-top: 1px solid black;
-        width: 220px;
-
+        padding: 5px;
+        border-bottom: 2px solid black;
+        border-top: 2px solid black;
         //mobile
-        @media (max-width: 780px ){
+        @media (min-width: 550px ){
+            display: none;
             font-size: 40px;
         }
+        
     }
 
     nav{
         display: inline-flex;
-        justify-content: space-evenly;
+        justify-content: space-between;
+        align-items: center;
         width: 100%;
         font-size: 20px;
 
@@ -66,19 +69,40 @@ header{
             justify-content: space-evenly;
         }
 
+        h1{
+            font-size: 35px;
+            justify-content: center;
+            padding: 5px;
+            border-bottom: 1px solid black;
+            border-top: 1px solid black;
+            @media(max-width: 550px){
+                display: none;
+            }
+        }
+        
+
         a{
-            color: black;
+            color: rgb(0, 0, 0);
             text-decoration: none;
             padding: 5px;
-            border-top: 1px solid black;
-            border-bottom: 1px solid black;
+            border: 1px solid rgb(0, 0, 0);
+            background-color: rgb(255, 255, 255);
+            border-radius: 10px;
+            //mobile
+            @media (max-width: 780px ){
+                border: 2px solid black;
+                margin-bottom: 10px;
+                justify-content: space-around;
+            }
         }
 
         a:hover{
+            transition: .5s;
             text-decoration: underline;
             transition: .5s;
             color: white;
-            background-color: black;
+            background-color: rgb(40, 46, 63);
+
         }
     }
 
@@ -98,14 +122,13 @@ header{
     background-position-y: -400px;
     background-size: 100%;
     background-repeat: repeat;
-    border-radius: 0 0 10px 10px;
     margin-bottom: 20px;
+    border-radius: 20px;
 
     //MOBILE
-    @media (max-width: 1100px ){
+    @media (max-width: 1200px ){
         background-size: 100%;
         background-position: bottom;
-        background-attachment: local;
         height: 296px;
     }
 }
@@ -113,6 +136,7 @@ header{
 .top-content{
     display: flex;
     justify-content: space-between;
+    
 
     //MOBILE
     @media (max-width: 780px ){
@@ -132,8 +156,9 @@ header{
         padding: 10px;
         margin-bottom: 20px;
         background-color: white;
-        border-radius: 10px;
         margin: 0 auto;
+        border-radius: 10px;
+        border: 2px solid black;
 
         //MOBILE
         @media (max-width: 780px ){
@@ -154,79 +179,115 @@ header{
     }
 }
 
-.buttons{
-    display: flex;
-    justify-content: space-evenly;
-    border-bottom: 2px solid black;
-    padding: 20px 0;
-
-   .btn{
-        font-size: 20px;
-        height: 40px;
-        width: 200px;
-        background-color: white;
-        border: 2px solid black;
-        border-radius: 10px;
-    } 
-
-    :hover{
-        color: white;
-        background-color: black;
-        transition: .5s;
-    }
-}
 
 .middle{
+    margin: 20px;
     display: flex;
-    background-color: white;
-    border-bottom: 2px solid black;
+    background-color: rgb(255, 253, 253);
+    border-radius: 10px;
+    border: 2px solid black;
+    //MOBILE
+    @media (max-width: 780px ){
+        flex-flow: column;
+        margin: 10px;
+    }
+
+    ul{
+        line-height: 2.5em;
+    }
+
     .middle-content{
-        width: 45%;
-        margin: 0 auto;
         padding: 10px;
+        width: 50%;
     }
 
 }
 
+//ABOUT PAGE OPEN IMAGE
+
+.middle-content{
+    .middle-content img{
+     height: auto;
+     width: 50%;
+        padding: 0;
+        margin: 0;
+    }
+}
+
+
 .bottom-content{
-    width: 100%;
-    display: inline-flex;
+    width: 90%;
+    display: flex;
+    margin: 0 auto;
     padding: 10px;
+    @media (max-width: 780px ){
+        flex-flow: column;
+        margin: 0 auto;
+        justify-content: center;
+    }
+
+    .text{
+        background-color: white;
+        padding: 10px;
+        font-size: 2em;
+        margin: 0 auto;
+        border-radius: 0 10px 10px 0;
+        border: 2px solid black;
+        @media (max-width: 780px ){
+            width: 90%;
+            border-radius: 10px;
+        }
+    }
 
     img{
         height: 50%;
         width: 50%;
-        border-radius: 10px;
-    }
-
-    .bottom-text{
-        width: 50%;
-        padding: 10px;
+        border-radius: 10px 0 0 10px;
+        border: 2px solid black;
+        @media (max-width: 780px ){
+            width: 90%;
+            margin: 0 auto;
+            border-radius: 10px;
+        }
     }
 
 }
 
 
 footer{
-    background-color: rgb(87, 86, 86);
     width: 100%;
     height: 50px;
-    border-radius: 10px 10px 0 0;
     display: flex;
     justify-content: space-evenly;
-    padding: 10px;
-}
-.abtUs{
-    font-size: 20px;
-    height: 40px;
-    width: 150px;
-    background-color: white;
-    border: 2px solid black;
-    border-radius: 10px;
+    padding-top: 10px;
+    nav{
+        display: inline-flex;
+        justify-content: space-evenly;
+        align-items: center;
+        width: 100%;
+        font-size: 20px;
+
+        //mobile
+        @media (max-width: 780px ){
+            justify-content: space-evenly;
+        }
+
+        a{
+            color: rgb(40, 46, 63);
+            text-decoration: none;
+            padding: 10px;
+            background-color: rgb(255, 255, 255);
+            border-radius: 10px;
+            border: 2px solid black;
+        }
+
+        a:hover{
+            text-decoration: underline;
+            transition: .5s;
+            color: white;
+            background-color: rgb(40, 46, 63);
+
+        }
+    }
 }
 
-.abtUs:hover{
-    color: white;
-    background-color: black;
-    transition: .5s;
-}
