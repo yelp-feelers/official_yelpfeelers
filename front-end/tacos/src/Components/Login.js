@@ -45,6 +45,8 @@ class Login extends Component {
             onChange={this.handleChanges}
           />
           <br />
+          {this.props.error && <p className="error">{this.props.error}</p>}
+          <br />
           <button>LOG IN</button>
         </form>
       </div>

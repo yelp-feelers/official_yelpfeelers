@@ -65,16 +65,9 @@ const styles = theme => ({
 // CDM to load tacos - does this require refactor to a class component?
 // mapPropsToState in order to populate Cards
 // or can I set cards to the value of getTacos() which will return the array?
-const cards = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
+// const cards = [props.tacoReviews];
 
-// class Album extends React.Component {
-//     constructor(props){
-//         super()
-//         this.state = {
 
-//         }
-//     }
-// }
 function Album(props) {
   const { classes } = props;
 
@@ -164,9 +157,7 @@ function Album(props) {
   );
 }
 
-const mapStateToProps = state => ({
-    yelpData
-})
+
 
 Album.propTypes = {
   classes: PropTypes.object.isRequired,

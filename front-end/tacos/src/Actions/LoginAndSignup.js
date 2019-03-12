@@ -22,9 +22,8 @@ export const login = creds => dispatch => {
     .then(res => {
       localStorage.setItem("jwt", res.data.token);
       dispatch({ type: LOGIN_SUCCESS, payload: res.data.token });
-
     })
-    .catch(err => console.log(err));
+    .catch(err => dispatch({type:LOGIN_ERROR, payload:err.res }));
 };
 
 export const signup = creds => dispatch => {

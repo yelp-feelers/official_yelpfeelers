@@ -6,7 +6,7 @@ import Login from "./Components/Login";
 import Signup from "./Components/Signup";
 import PrivateRoute from "./Components/PrivateRoute";
 import RestaurantList from "./Components/RestaurantList";
-import Album from "./Components/Album";
+
 
 
 // to control display of login links, mapStatetoProps and use a "loggedIn" key
@@ -23,7 +23,7 @@ class App extends Component {
           </div>
           <Route path="/" exact component={Login} />
           <Route path="/signup" component={Signup} />
-          <PrivateRoute path="/protected" component={Album} />
+          <PrivateRoute path="/protected" component={RestaurantList} />
         </div>
       </Router>
     );

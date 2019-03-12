@@ -1,58 +1,80 @@
-import { LOGIN_START, LOGIN_SUCCESS, SIGNUP_START, SIGNUP_SUCCESS } from '../Actions/LoginAndSignup'
-import { FETCHING_TACOS_ALL, TACO_SUCCESS_ALL } from '../Actions/DataFetching';
+import {
+  LOGIN_START,
+  LOGIN_SUCCESS,
+  LOGIN_ERROR,
+  SIGNUP_START,
+  SIGNUP_SUCCESS,
+  SIGNUP_ERROR
+} from "../Actions/LoginAndSignup";
+import { FETCHING_TACOS_ALL, TACO_SUCCESS_ALL } from "../Actions/DataFetching";
 
 const initialState = {
-    yelpData: [],
-    //interstitial states to conditionally render spinners and stuff
-    loggedIn: false,
-    loggingIn: false,
-    signingUp: false,
-    fetchingTacos: true,
-    error: null,
-    token: localStorage.getItem('jwt')
-    //placeholder till we figure out what sort of App we're building
+  yelpData: [],
+  //interstitial states to conditionally render spinners and stuff
+  loggedIn: false,
+  loggingIn: false,
+  signingUp: false,
+  fetchingTacos: true,
+  error: null,
+  token: localStorage.getItem("jwt")
+  //placeholder till we figure out what sort of App we're building
 };
 
 const reducer = (state = initialState, action) => {
-    switch (action.type) {
-        case LOGIN_START:
-        return {
-            ...state,
-            loggingIn: true
-        };
-        case LOGIN_SUCCESS:
-        return {
-            ...state,
-            loggingIn: false,
-            loggedIn: true,
-            token: action.payload
-        }
-        case SIGNUP_START:
-        return {
-            ...state,
-            signingUp: true
-        }
-        case SIGNUP_SUCCESS:
-        return {
-            ...state,
-            signingUp: false,
-        }
-        case FETCHING_TACOS_ALL:
-        return {
-            ...state,
-            fetchingTacos: true
-        }
-        case TACO_SUCCESS_ALL:
-        return {
-            ...state,
-            fetchingTacos: false,
-            yelpData: action.payload
-        }
+  switch (action.type) {
+    case LOGIN_START:
+      return {
+        ...state,
+        error: null,
+        loggingIn: true
+      };
+    case LOGIN_SUCCESS:
+      return {
+        ...state,
+        error: null,
+        loggingIn: false,
+        loggedIn: true,
+        token: action.payload
+      };
+    case LOGIN_ERROR:
+    return {
+        ...state,
+        loggingIn: false, 
+        error: action.payload
+    }
+    case SIGNUP_START:
+      return {
+        ...state,
+        error: null,
+        signingUp: true
+      };
+    case SIGNUP_SUCCESS:
+      return {
+        ...state,
+        error: null,
+        signingUp: false
+      };
+    case SIGNUP_ERROR:
+    return {
+        ...state,
+        signingUp: false,
+        error: action.payload
+    }
+    case FETCHING_TACOS_ALL:
+      return {
+        ...state,
+        fetchingTacos: true
+      };
+    case TACO_SUCCESS_ALL:
+      return {
+        ...state,
+        fetchingTacos: false,
+        yelpData: action.payload
+      };
 
-        default:
-        return state;
-    }   
+    default:
+      return state;
+  }
+};
 
-}
-
-export default reducer
+export default reducer;

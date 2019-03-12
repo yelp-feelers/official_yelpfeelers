@@ -1,21 +1,36 @@
 import React, { Component } from "react";
-import { withRouter } from "react-router-dom";
 import { connect } from "react-redux";
+import { getTacos } from "../Actions/DataFetching";
+
+import Restaurant from "./Restaurant";
 
 class RestaurantList extends Component {
+  state = {
+    yelpData: this.props.yelpData
+  };
+  componentDidMount() {
+    this.props.getTacos();
+  }
+
   render() {
     return (
-      <div>
-        <h1>THIS IS A PROTECTED LIST OF TACO JOINTS</h1>
-      </div>
+      <>
+        <h1>PROTECTED TACO ROUTE</h1>
+        <div className="main-container">
+          {this.props.yelpData.map(restaurant => (
+            <Restaurant restaurant={restaurant} />
+          ))}
+        </div>
+      </>
     );
   }
 }
 
-//this was an attempt to use withRouter to call teh history.push method on the action creator rather than the function at component level. 
-export default withRouter(
-  connect(
-    null,
-    {}
-  )(RestaurantList)
-);
+const mapStateToProps = state => ({
+  yelpData: state.yelpData
+});
+
+export default connect(
+  mapStateToProps,
+  { getTacos }
+)(RestaurantList);
