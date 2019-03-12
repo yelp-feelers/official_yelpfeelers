@@ -6,7 +6,7 @@ import {
   SIGNUP_SUCCESS,
   SIGNUP_ERROR
 } from "../Actions/LoginAndSignup";
-import { FETCHING_TACOS_ALL, TACO_SUCCESS_ALL } from "../Actions/DataFetching";
+import { FETCHING_TACOS_ALL, TACO_SUCCESS_ALL, FETCHING_REVIEWS, REVIEW_SUCCESS } from "../Actions/DataFetching";
 
 const initialState = {
   yelpData: [],
@@ -70,9 +70,20 @@ const reducer = (state = initialState, action) => {
       return {
         ...state,
         fetchingTacos: false,
-        yelpData: action.payload
+        yelpData: action.payload,
+        reviews:[]
       };
-
+    case FETCHING_REVIEWS:
+    return{
+        ...state,
+        fetchingReviews: true,
+    }
+    case REVIEW_SUCCESS:
+    return {
+        ...state,
+        reviews: action.payload,
+        fetchingReviews: false, 
+    }
     default:
       return state;
   }

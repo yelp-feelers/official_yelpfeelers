@@ -17,11 +17,11 @@ export const getTacos = () => dispatch => {
     .catch(err => console.log(err));
 };
 
-export const getReviews = () => dispatch => {
+export const getReviews = (id) => dispatch => {
   // get request from server for tacos data
   dispatch({ type: FETCHING_REVIEWS });
 
-  const endpoint = "http://jsonplaceholder.typicode.com/todos";
+  const endpoint = "http://jsonplaceholder.typicode.com/todos/"+id;
 
   return axios
     .get(endpoint)
