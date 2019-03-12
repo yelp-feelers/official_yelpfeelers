@@ -6,6 +6,7 @@ import Login from "./Components/Login";
 import Signup from "./Components/Signup";
 import PrivateRoute from "./Components/PrivateRoute";
 import RestaurantList from "./Components/RestaurantList";
+import RestaurantReviews from "./Components/RestaurantReviews";
 
 
 
@@ -23,7 +24,8 @@ class App extends Component {
           </div>
           <Route path="/" exact component={Login} />
           <Route path="/signup" component={Signup} />
-          <PrivateRoute path="/protected" component={RestaurantList} />
+          <PrivateRoute exact path="/restaurants" component={RestaurantList} />
+          {/* <PrivateRoute path="/restaurants/:id" component={RestaurantReviews} /> */}
         </div>
       </Router>
     );

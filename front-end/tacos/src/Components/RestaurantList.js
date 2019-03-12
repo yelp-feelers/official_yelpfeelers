@@ -18,7 +18,7 @@ class RestaurantList extends Component {
         <h1>PROTECTED TACO ROUTE</h1>
         <div className="main-container">
           {this.props.yelpData.map(restaurant => (
-            <Restaurant restaurant={restaurant} />
+            <Restaurant restaurant={restaurant} key={restaurant.id}/>
           ))}
         </div>
       </>

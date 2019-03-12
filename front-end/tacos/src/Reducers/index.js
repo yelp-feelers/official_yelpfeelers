@@ -10,6 +10,7 @@ import { FETCHING_TACOS_ALL, TACO_SUCCESS_ALL } from "../Actions/DataFetching";
 
 const initialState = {
   yelpData: [],
+  reviews: [],  
   //interstitial states to conditionally render spinners and stuff
   loggedIn: false,
   loggingIn: false,

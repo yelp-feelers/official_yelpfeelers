@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const Restaurant = props => {
     return (
@@ -12,7 +13,7 @@ const Restaurant = props => {
                 <div>{props.restaurant.id}</div>
             </div>
             {/* FIND DYNAMIC LINKS FOR REVIEW CALL */}
-            <button>Read the Reviews</button>
+            <Link to={`/restaurants/${props.restaurant.id}`}><button>Read the Reviews</button></Link>
         </div>
     );
 };
