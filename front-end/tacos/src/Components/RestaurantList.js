@@ -12,6 +12,7 @@ class RestaurantList extends Component {
   }
 }
 
+//this was an attempt to use withRouter to call teh history.push method on the action creator rather than the function at component level. 
 export default withRouter(
   connect(
     null,
