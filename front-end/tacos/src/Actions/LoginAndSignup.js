@@ -17,12 +17,12 @@ export const login = creds => dispatch => {
 
   const endpoint = "https://yelpfeelers-server.herokuapp.com/api/auth/login";
 
-  axios
+  return axios
     .post(endpoint, creds)
     .then(res => {
       localStorage.setItem("jwt", res.data.token);
       dispatch({ type: LOGIN_SUCCESS, payload: res.data.token });
-      history.push("/protected");
+
     })
     .catch(err => console.log(err));
 };
@@ -32,12 +32,11 @@ export const signup = creds => dispatch => {
 
   const endpoint = "https://yelpfeelers-server.herokuapp.com/api/auth/signup";
 
-  axios
+  return axios
     .post(endpoint, creds)
     .then(res => {
       localStorage.setItem("jwt", res.data.token);
       dispatch({ type: SIGNUP_SUCCESS });
-      history.push("/protected");
     })
     .catch(err => console.log(err));
 };

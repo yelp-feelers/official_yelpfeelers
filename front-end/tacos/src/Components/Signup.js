@@ -22,6 +22,7 @@ class Signup extends Component {
   signup = e => {
     e.preventDefault();
     this.props.signup(this.state.credentials)
+    .then(()=> this.props.history.push('/protected'))
   };
 
   render() {
