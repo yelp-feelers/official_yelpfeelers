@@ -25,13 +25,8 @@ const PrivateRoute = ({ component: Component, ...rest }) => {
 
 //this was an attempt to check state for token to conditionally render instead of localStorage. I'm going to go back and try again so I'm not deleting it. 
 
-const mapStateToProps = ({ token }) => ({
-    token
-});
+// const mapStateToProps = ({ token }) => ({
+//     token: state.token
+// });
 
-export default withRouter(
-    connect (
-        mapStateToProps,
-        {}
-    )(PrivateRoute)
-);
+export default PrivateRoute

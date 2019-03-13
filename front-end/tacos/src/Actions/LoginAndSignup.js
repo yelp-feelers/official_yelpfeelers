@@ -35,13 +35,14 @@ export const signup = creds => dispatch => {
   return axios
     .post(endpoint, creds)
     .then(res => {
-      localStorage.setItem("jwt", res.data.token);
+     localStorage.setItem("jwt", res.data.token);
       dispatch({ type: SIGNUP_SUCCESS });
     })
     .catch(err => console.log(err));
 };
 
 export const logOut = () => {
+  localStorage.removeItem("jwt");
   return {
     type: LOG_OUT,
   }

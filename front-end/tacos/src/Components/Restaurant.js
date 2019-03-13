@@ -13,8 +13,8 @@ const Restaurant = props => {
     const tacos = [taco1, taco2, taco3, taco4];
     return (
         <div>
-          <Card>
-            <CardImg top width="25%" height="25%"src={tacos[random]} alt="a taco" />
+          <Card width="25%">
+            <CardImg top width="25%" src={tacos[random]} alt="a taco" />
             <CardBody>
               <CardTitle>{props.restaurant.name}</CardTitle>
               <CardSubtitle>Ratings:</CardSubtitle>

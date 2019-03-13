@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { getRestaurants } from "../Actions/DataFetching";
+import { CardColumns } from "reactstrap";
 
 import Restaurant from "./Restaurant";
 
@@ -17,9 +18,11 @@ class RestaurantList extends Component {
       <>
         <h1>PROTECTED TACO ROUTE</h1>
         <div className="main-container">
-          {this.props.restaurants.map(restaurant => (
-            <Restaurant restaurant={restaurant} key={restaurant.id}/>
-          ))}
+          <CardColumns>
+            {this.props.restaurants.map(restaurant => (
+              <Restaurant restaurant={restaurant} key={restaurant.id} />
+            ))}
+          </CardColumns>
         </div>
       </>
     );
