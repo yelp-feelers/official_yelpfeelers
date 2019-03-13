@@ -21,7 +21,7 @@ class RestaurantReviews extends Component {
       <div className="review-container">
         
         {this.props.reviews.map(review => (
-            <Review review={review} />
+            <Review review={review} key={review.id}/>
         ))}
       </div>
     );

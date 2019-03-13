@@ -33,4 +33,4 @@ export const getReviews = (id) => dispatch => {
 
 
 
-// dispatch({ type: REVIEW_SUCCESS, payload: res.data.reviews }))
+// 

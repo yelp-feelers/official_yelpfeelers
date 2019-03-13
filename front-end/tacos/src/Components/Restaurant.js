@@ -28,13 +28,13 @@ const Restaurant = props => {
             <CardText>
               Normal Rating:
               <br />
-              {props.restaurant.id} stars
+              {props.restaurant.true_score} stars
             </CardText>
             {/* the below both need to be adjusted when real data comes in  */}
             <CardText>
               Adjusted Rating:
               <br />
-               {props.restaurant.id} stars
+               {props.restaurant.adju_score} stars
             </CardText>
           </div>
           <Link to={`/restaurants/${props.restaurant.id}`}>

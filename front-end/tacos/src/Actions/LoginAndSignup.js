@@ -36,7 +36,7 @@ export const signup = creds => dispatch => {
     .post(endpoint, creds)
     .then(res => {
      localStorage.setItem("jwt", res.data.token);
-      dispatch({ type: SIGNUP_SUCCESS });
+      dispatch({ type: SIGNUP_SUCCESS, payload: res.data.token});
     })
     .catch(err => console.log(err));
 };

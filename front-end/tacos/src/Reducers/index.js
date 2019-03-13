@@ -22,7 +22,7 @@ const initialState = {
   signingUp: false,
   fetchingTacos: true,
   error: null,
-  token: null,
+  token: localStorage.getItem('jwt'),
 };
 
 const reducer = (state = initialState, action) => {
@@ -58,7 +58,8 @@ const reducer = (state = initialState, action) => {
         ...state,
         error: null,
         signingUp: false,
-        loggedIn: true
+        loggedIn: true,
+        token: action.payload
       };
     case SIGNUP_ERROR:
       return {
@@ -92,7 +93,8 @@ const reducer = (state = initialState, action) => {
     case LOG_OUT:
       return {
         ...state,
-        loggedIn: false
+        loggedIn: false,
+        token: null
       };
     default:
       return state;
