@@ -1,7 +1,19 @@
+const toggleMenu = () => {
+  nav.classList.toggle('menu--open');
+  console.log(nav.classList);
+}
+
+const nav = document.querySelector('.menu');
+
+const menuButton = document.querySelector('.menu-button');
+
+menuButton.addEventListener('click', toggleMenu);
+
+
 const corners = document.querySelector('.taco-picture');
 corners.addEventListener('mouseover', function(remove) {
   remove.target.style.borderRadius = '50px';
-  remove.target.style.transition = '2.5s';
+  remove.target.style.transition = '3s';
   remove.target.style.width = '90%';
   remove.target.style.backgroundPositionY = '-300px';
 
@@ -19,7 +31,9 @@ signUpButton.addEventListener('mouseover', function(callback){
   callback.target.style.transition = '3s';
 });
 
-const sections = document.querySelector('.about-middle .about-middle-content');
+
+//this calls an ettor in the console but it still functions
+const sections = document.querySelector('.about-middle-content');
 sections.addEventListener('mouseover', function (call){
   call.target.style.backgroundColor = 'black';
   call.target.style.color = 'white';
