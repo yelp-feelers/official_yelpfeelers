@@ -53,6 +53,7 @@ class App extends Component {
       <Router>
         <div className="App">
           {this.props.loggedIn ? <div>{loggedInNavBar}</div> : <div>{loggedOutNavBar}</div>}
+          <Route path="/" exact component={Login} />
           <Route path="/login" exact component={Login} />
           <Route path="/signup" component={Signup} />
           <PrivateRoute exact path="/restaurants" component={RestaurantList} />
