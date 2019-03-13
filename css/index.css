@@ -39,8 +39,7 @@ header nav {
   }
 }
 header nav h1 {
-  font-size: 35px;
-  justify-content: center;
+  font-size: 40px;
   padding: 5px;
   border-bottom: 1px solid black;
   border-top: 1px solid black;
@@ -100,7 +99,8 @@ header nav a:hover {
 }
 @media (max-width: 780px) {
   .top-content {
-    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: center;
   }
 }
 .top-content h2 {
@@ -111,6 +111,7 @@ header nav a:hover {
 .top-content .header-text {
   display: inline-flex;
   flex-direction: column;
+  justify-content: center;
   width: 30%;
   padding: 10px;
   margin-bottom: 20px;
@@ -121,8 +122,7 @@ header nav a:hover {
 }
 @media (max-width: 780px) {
   .top-content .header-text {
-    width: 90%;
-    justify-content: center;
+    width: 92%;
     margin: 10px;
     border: 2px solid black;
   }
@@ -141,11 +141,13 @@ header nav a:hover {
   background-color: #fffdfd;
   border-radius: 10px;
   border: 2px solid black;
+  margin: 10px;
 }
 @media (max-width: 780px) {
   .middle {
     flex-flow: column;
-    margin: 10px;
+    margin: 0 auto;
+    width: 95%;
   }
 }
 .middle ul {
@@ -155,9 +157,14 @@ header nav a:hover {
   padding: 10px;
   width: 50%;
 }
+@media (max-width: 780px) {
+  .middle .middle-content {
+    margin: 0 auto;
+  }
+}
 .middle-content .middle-content img {
   height: auto;
-  width: 50%;
+  width: 100%;
   padding: 0;
   margin: 0;
 }
@@ -175,6 +182,7 @@ header nav a:hover {
   }
 }
 .bottom-content .text {
+  justify-content: center;
   background-color: white;
   padding: 10px;
   font-size: 2em;
@@ -184,7 +192,7 @@ header nav a:hover {
 }
 @media (max-width: 780px) {
   .bottom-content .text {
-    width: 90%;
+    width: 87%;
     border-radius: 10px;
   }
 }
@@ -233,4 +241,30 @@ footer nav a:hover {
   transition: 0.5s;
   color: white;
   background-color: #282e3f;
+}
+.about-bottom-content {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+.about-bottom-content img.one {
+  width: 49%;
+  height: 49%;
+  border-radius: 10px;
+}
+@media (max-width: 780px) {
+  .about-bottom-content img.one {
+    width: 100%;
+  }
+}
+.about-bottom-content img.two {
+  width: 49%;
+  height: 49%;
+  border-radius: 10px;
+}
+@media (max-width: 780px) {
+  .about-bottom-content img.two {
+    display: none;
+  }
 }
