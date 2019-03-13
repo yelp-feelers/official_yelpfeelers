@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { login } from "../Actions/LoginAndSignup";
+import { Button } from "reactstrap";
 
 class Login extends Component {
   state = {
@@ -28,6 +29,8 @@ class Login extends Component {
   render() {
     return (
       <div>
+        <br />
+        <br />
         <form onSubmit={this.login}>
           <input
             name="username"
@@ -40,7 +43,7 @@ class Login extends Component {
           <br />
           <input
             name="password"
-            type="text"
+            type="password"
             placeholder="password"
             value={this.state.credentials.password}
             onChange={this.handleChanges}
@@ -48,7 +51,7 @@ class Login extends Component {
           <br />
           {this.props.error && <p className="error">{this.props.error}</p>}
           <br />
-          <button>LOG IN</button>
+          <Button color="primary" type="submit">LOG IN</Button>
         </form>
       </div>
     );

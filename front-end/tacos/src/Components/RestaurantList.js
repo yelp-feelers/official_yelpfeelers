@@ -39,7 +39,8 @@ class RestaurantList extends Component {
 }
 
 const mapStateToProps = state => ({
-  restaurants: state.restaurants
+  restaurants: state.restaurants,
+  loggingIn: state.loggingIn
 });
 
 export default connect(

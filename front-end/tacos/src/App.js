@@ -13,7 +13,8 @@ import RestaurantReviews from "./Components/RestaurantReviews";
 // to control display of login links, mapStatetoProps and use a "loggedIn" key
 
 class App extends Component {
-  logOut() {
+  logOut = e => {
+    e.preventDefault();
     this.props.logOut()
 
   }
@@ -26,7 +27,7 @@ class App extends Component {
         <NavbarBrand href="/">YELP FEELERS</NavbarBrand>
         <Nav className="ml-auto" navbar>
           <NavItem>
-            <NavLink to="/" onClick={() => this.logOut()}>
+            <NavLink to="/" onClick={this.logOut}>
               LOG OUT
             </NavLink>
           </NavItem>

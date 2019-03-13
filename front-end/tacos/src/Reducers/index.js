@@ -37,8 +37,6 @@ const reducer = (state = initialState, action) => {
       return {
         ...state,
         error: null,
-        loggingIn: false,
-        loggedIn: true,
         token: action.payload
       };
     case LOGIN_ERROR:
@@ -75,6 +73,7 @@ const reducer = (state = initialState, action) => {
     case RESTAURANT_SUCCESS:
       return {
         ...state,
+        loggingIn: false,
         fetchingTacos: false,
         restaurants: action.payload,
         reviews: []
