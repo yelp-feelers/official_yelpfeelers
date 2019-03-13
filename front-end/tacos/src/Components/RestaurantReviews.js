@@ -9,7 +9,6 @@ class RestaurantReviews extends Component {
   constructor(props) {
     super();
   }
-  //oppportunity to just get individual reviews here if you call the function on the index orf the restaurant
 
   componentDidMount() {
     const id = this.props.match.params.id;

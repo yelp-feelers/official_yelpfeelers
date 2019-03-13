@@ -4,6 +4,9 @@ import taco1 from '../taco.png';
 import taco2 from '../taco2.png';
 import taco3 from '../taco3.png';
 import taco4 from '../taco4.png';
+import { Card, CardImg, CardText, CardBody,
+    CardTitle, CardSubtitle, Button } from 'reactstrap';
+
 
 const Restaurant = props => {
     const tacos = [taco1, taco2, taco3, taco4];
