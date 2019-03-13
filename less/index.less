@@ -31,6 +31,7 @@ body{
     margin: 0 auto;
     background-image: url('https://i.pinimg.com/originals/ab/cf/d2/abcfd29ccfa5d77c15e0a07e4b75a542.jpg');
     background-attachment: fixed;
+    
 
 }
 
@@ -84,8 +85,6 @@ header{
             color: rgb(0, 0, 0);
             text-decoration: none;
             padding: 5px;
-            border: 1px solid rgb(0, 0, 0);
-            background-color: rgb(255, 255, 255);
             border-radius: 10px;
             //mobile
             @media (max-width: 780px ){
@@ -100,7 +99,7 @@ header{
             text-decoration: underline;
             transition: .5s;
             color: white;
-            background-color: rgb(40, 46, 63);
+            background-color: rgb(5, 5, 5);
 
         }
     }
@@ -117,12 +116,12 @@ header{
     margin: auto;
     width: 100%;
     height: 400px;
+    border-radius: 5px;
     background-image: url('https://images.pexels.com/photos/1113520/pexels-photo-1113520.jpeg?cs=srgb&dl=alphabet-brick-wall-close-up-1113520.jpg&fm=jpg');
     background-position-y: -400px;
     background-size: 100%;
     background-repeat: repeat;
     margin-bottom: 20px;
-    border-radius: 20px;
 
     //MOBILE
     @media (max-width: 1200px ){
@@ -179,11 +178,18 @@ header{
     }
 }
 
+.sign{
+    height: 100px;
+    display: flex;
+    justify-content: center;
+
+}
+
 
 .middle{
     margin: 20px;
     display: flex;
-    background-color: rgb(255, 253, 253);
+    background-color: rgb(255, 255, 255);
     border-radius: 10px;
     border: 2px solid black;
     margin: 10px;
@@ -221,7 +227,7 @@ header{
 
 
 .bottom-content{
-    width: 90%;
+    width: 100%;
     display: flex;
     margin: 0 auto;
     padding: 10px;
@@ -230,24 +236,9 @@ header{
         margin: 0 auto;
         justify-content: center;
     }
-
-    .text{
-        justify-content: center;
-        background-color: white;
-        padding: 10px;
-        font-size: 2em;
-        margin: 0 auto;
-        border-radius: 0 10px 10px 0;
-        border: 2px solid black;
-        @media (max-width: 780px ){
-            width: 87%;
-            border-radius: 10px;
-        }
-    }
-
     img{
-        height: 50%;
-        width: 50%;
+        height: 30px;
+        width: 100%;
         border-radius: 10px 0 0 10px;
         border: 2px solid black;
         @media (max-width: 780px ){
@@ -279,10 +270,9 @@ footer{
         }
 
         a{
-            color: rgb(40, 46, 63);
+            color: black;
             text-decoration: none;
             padding: 10px;
-            background-color: rgb(255, 255, 255);
             border-radius: 10px;
             border: 2px solid black;
         }
@@ -291,7 +281,7 @@ footer{
             text-decoration: underline;
             transition: .5s;
             color: white;
-            background-color: rgb(40, 46, 63);
+            background-color: rgb(3, 3, 3);
 
         }
 
@@ -301,28 +291,50 @@ footer{
 }
 
 .about-bottom-content{
-    width: 100%;
+    .cantSeeMe{
+        visibility: hidden;
+    }
+    width: 90%;
+    height: 300px;
+    margin: 0 auto;
+    border-radius: 10px;
+    background-image: url('https://images.pexels.com/photos/1064136/pexels-photo-1064136.jpeg?cs=srgb&dl=architecture-blur-city-1064136.jpg&fm=jpg');
+    background-position: bottom;
+    background-size: 100%;
+    background-attachment: fixed;
     display: flex;
     flex-direction: row;
     justify-content: center;
-    img.one{
-        width: 49%;
-        height: 49%;
-        border-radius: 10px;
-        //mobile
-        @media (max-width: 780px ){
-            width: 100%;
-        }
+    @media (max-width: 1000px){
+        background-attachment: unset;
+        background-position: center;
     }
+    
+}
 
-    img.two{
-        width: 49%;
-        height: 49%;
+
+.about-middle{
+    display: inline-flex;
+    width: 100%;
+
+    .about-middle-content{
+        width: 30%;
+        margin: 0 auto;
+        background-color: white;
+        border: 2px solid black;
         border-radius: 10px;
-        //mobile
-        @media (max-width: 780px ){
-           display: none;
+        padding: 10px;
+        margin-top: 10px;
+        @media (max-width: 800px){
+            width: 90%;
+            justify-content: center;
+            margin: 10px;
         }
     }
+    @media (max-width: 800px){
+        flex-direction: column;
+        
+    }
+    
 }
 
