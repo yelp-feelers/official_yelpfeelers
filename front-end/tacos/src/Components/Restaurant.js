@@ -9,25 +9,31 @@ import { Card, CardImg, CardText, CardBody,
 
 
 const Restaurant = props => {
-    const tacos = [taco1, taco2, taco3, taco4];
     let random = Math.floor(Math.random()*4)
-    console.log(random)
+    const tacos = [taco1, taco2, taco3, taco4];
     return (
-        
-        <div className='restaurant-container'>
-            <h2>{props.restaurant.name}</h2>
-            <img src={tacos[random]} alt="a taco"/>
-            <div>
-                {/* placeholders - replace with star ratings */}
-                <h2>Raw Rating</h2>
-                <div>{props.restaurant.id}</div>
-                <h2>Adjusted Rating</h2>
-                <div>{props.restaurant.id}</div>
-            </div>
-            {/* Figure out what identifier wil be in dataset*/}
-            <Link to={`/restaurants/${props.restaurant.id}`}><button>Read the Reviews</button></Link>
+        <div>
+          <Card>
+            <CardImg top width="25%" height="25%"src={tacos[random]} alt="a taco" />
+            <CardBody>
+              <CardTitle>{props.restaurant.name}</CardTitle>
+              <CardSubtitle>Ratings:</CardSubtitle>
+              <CardText>Raw rating: {props.restaurant.id} stars</CardText>
+              <br />
+              {/* the below both need to be adjusted when real data comes in  */}
+              <CardText>Adjusted rating: {props.restaurant.id} stars</CardText>
+              <Link to={`/restaurants/${props.restaurant.id}`}><Button>Read the Reviews</Button></Link>
+            </CardBody>
+          </Card>
         </div>
-    );
-};
+      );
+    };
+    
+    
+    
+    
+    
+    
+
 
 export default Restaurant;
