@@ -1,19 +1,19 @@
 import axios from "axios";
 
-export const FETCHING_TACOS_ALL = "FETCHING_TACOS_ALL";
-export const TACO_SUCCESS_ALL = "TACO_SUCCESS_ALL";
+export const FETCHING_RESTAURANTS = "FETCHING_RESTAURANTS";
+export const RESTAURANT_SUCCESS = "RESTAURANT_SUCCESS";
 export const FETCHING_REVIEWS = "FETCHING_REVIEWS";
 export const REVIEW_SUCCESS = "REVIEW_SUCCESS";
 
-export const getTacos = () => dispatch => {
+export const getRestaurants = () => dispatch => {
   // get request from server for tacos data
-  dispatch({ type: FETCHING_TACOS_ALL });
+  dispatch({ type: FETCHING_RESTAURANTS });
 
   const endpoint = "https://yelpfeelers-server.herokuapp.com/api/restaurants";
 
   return axios
-    .get(endpoint)
-    .then(res => dispatch({ type: TACO_SUCCESS_ALL, payload: res.data }))
+    .get(endpoint, { headers: {Authorization: localStorage.getItem("jwt")}})
+    .then(res => dispatch({ type: RESTAURANT_SUCCESS, payload: res.data }))
     .catch(err => console.log(err));
 };
 
@@ -21,7 +21,9 @@ export const getReviews = (id) => dispatch => {
   // get request from server for tacos data
   dispatch({ type: FETCHING_REVIEWS });
 
-  const endpoint = "http://jsonplaceholder.typicode.com/todos/"+id;
+  const endpoint = 'https://yelpfeelers-server.herokuapp.com/api/restaurants/:'+id+'/reviews';
+  
+
 
   return axios
     .get(endpoint)

@@ -6,11 +6,16 @@ import {
   SIGNUP_SUCCESS,
   SIGNUP_ERROR
 } from "../Actions/LoginAndSignup";
-import { FETCHING_TACOS_ALL, TACO_SUCCESS_ALL, FETCHING_REVIEWS, REVIEW_SUCCESS } from "../Actions/DataFetching";
+import {
+  FETCHING_RESTAURANTS,
+  RESTAURANT_SUCCESS,
+  FETCHING_REVIEWS,
+  REVIEW_SUCCESS
+} from "../Actions/DataFetching";
 
 const initialState = {
   yelpData: [],
-  reviews: [],  
+  reviews: [],
   //interstitial states to conditionally render spinners and stuff
   loggedIn: false,
   loggingIn: false,
@@ -38,11 +43,11 @@ const reducer = (state = initialState, action) => {
         token: action.payload
       };
     case LOGIN_ERROR:
-    return {
+      return {
         ...state,
-        loggingIn: false, 
+        loggingIn: false,
         error: action.payload
-    }
+      };
     case SIGNUP_START:
       return {
         ...state,
@@ -56,34 +61,34 @@ const reducer = (state = initialState, action) => {
         signingUp: false
       };
     case SIGNUP_ERROR:
-    return {
+      return {
         ...state,
         signingUp: false,
         error: action.payload
-    }
-    case FETCHING_TACOS_ALL:
+      };
+    case FETCHING_RESTAURANTS:
       return {
         ...state,
         fetchingTacos: true
       };
-    case TACO_SUCCESS_ALL:
+    case RESTAURANT_SUCCESS:
       return {
         ...state,
         fetchingTacos: false,
         yelpData: action.payload,
-        reviews:[]
+        reviews: []
       };
     case FETCHING_REVIEWS:
-    return{
+      return {
         ...state,
-        fetchingReviews: true,
-    }
+        fetchingReviews: true
+      };
     case REVIEW_SUCCESS:
-    return {
+      return {
         ...state,
         reviews: action.payload,
-        fetchingReviews: false, 
-    }
+        fetchingReviews: false
+      };
     default:
       return state;
   }

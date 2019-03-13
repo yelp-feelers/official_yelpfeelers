@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { getTacos } from "../Actions/DataFetching";
+import { getRestaurants } from "../Actions/DataFetching";
 
 import Restaurant from "./Restaurant";
 
@@ -9,7 +9,7 @@ class RestaurantList extends Component {
     yelpData: this.props.yelpData
   };
   componentDidMount() {
-    this.props.getTacos();
+    this.props.getRestaurants();
   }
 
   render() {
@@ -32,5 +32,5 @@ const mapStateToProps = state => ({
 
 export default connect(
   mapStateToProps,
-  { getTacos }
+  { getRestaurants }
 )(RestaurantList);
