@@ -23,7 +23,8 @@ class RestaurantList extends Component {
           </div>
         ) : (
           <div>
-            <h1>PROTECTED TACO ROUTE</h1>
+            <h1>The Best Tacos Near You</h1>
+            <h3>Our proprietary natural language processing parses thousands of reviews to provide you with the real score.</h3>
             <div className="main-container">
               <CardColumns>
                 {this.props.restaurants.map(restaurant => (

@@ -24,10 +24,10 @@ class App extends Component {
 
     let loggedInNavBar = (
       <Navbar color="light" light expand="md">
-        <NavbarBrand href="/">YELP FEELERS</NavbarBrand>
+        <NavbarBrand href="/restaurants">YELP FEELERS</NavbarBrand>
         <Nav className="ml-auto" navbar>
           <NavItem>
-            <NavLink to="/" onClick={this.logOut}>
+            <NavLink href="/" onClick={this.logOut}>
               LOG OUT
             </NavLink>
           </NavItem>
@@ -37,7 +37,7 @@ class App extends Component {
 
     let loggedOutNavBar = (
         <Navbar color="light" light expand="md">
-          <NavbarBrand href="/">YELP FEELERS</NavbarBrand>
+          <NavbarBrand href="/restaurants">YELP FEELERS</NavbarBrand>
           <Nav className="ml-auto" navbar>
             <NavItem>
               <NavLink href="/login">LOG IN</NavLink>
