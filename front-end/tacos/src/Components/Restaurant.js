@@ -12,8 +12,8 @@ const Restaurant = props => {
     return (
         
         <div className='restaurant-container'>
-            <h2>{props.restaurant.title}</h2>
-            <img src={tacos[random]}/>
+            <h2>{props.restaurant.name}</h2>
+            <img src={tacos[random]} alt="a taco"/>
             <div>
                 {/* placeholders - replace with star ratings */}
                 <h2>Raw Rating</h2>

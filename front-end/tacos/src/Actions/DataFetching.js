@@ -9,7 +9,7 @@ export const getTacos = () => dispatch => {
   // get request from server for tacos data
   dispatch({ type: FETCHING_TACOS_ALL });
 
-  const endpoint = "http://jsonplaceholder.typicode.com/posts";
+  const endpoint = "https://yelpfeelers-server.herokuapp.com/api/restaurants";
 
   return axios
     .get(endpoint)
