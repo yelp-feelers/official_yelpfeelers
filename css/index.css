@@ -230,7 +230,7 @@ footer nav a:hover {
   background-color: #030303;
 }
 .about-bottom-content {
-  width: 90%;
+  width: 100%;
   height: 300px;
   margin: 0 auto;
   border-radius: 10px;
@@ -254,6 +254,7 @@ footer nav a:hover {
 .about-middle {
   display: inline-flex;
   width: 100%;
+  margin: 0 auto;
 }
 .about-middle .about-middle-content {
   width: 30%;

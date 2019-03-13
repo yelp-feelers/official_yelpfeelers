@@ -15,6 +15,12 @@ signUpButton.style.width = '90%';
 signUpButton.addEventListener('mouseover', function(callback){
   callback.target.style.backgroundColor = 'black';
   callback.target.style.color = 'white';
-  callback.target.style.width = '50%';
+  callback.target.style.width = '32%';
   callback.target.style.transition = '3s';
+});
+
+const sections = document.querySelector('.about-middle .about-middle-content');
+sections.addEventListener('mouseover', function (call){
+  call.target.style.backgroundColor = 'black';
+  call.target.style.color = 'white';
 });
