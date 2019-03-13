@@ -1,19 +1,8 @@
 import React, { Component } from "react";
+import { connect } from "react-redux";
 import { BrowserRouter as Router, Link, Route } from "react-router-dom";
-import {
-  Collapse,
-  Navbar,
-  NavbarToggler,
-  NavbarBrand,
-  Nav,
-  NavItem,
-  NavLink,
-  UncontrolledDropdown,
-  DropdownToggle,
-  DropdownMenu,
-  DropdownItem
-} from "reactstrap";
-
+import { Navbar, NavbarBrand, Nav, NavItem, NavLink } from "reactstrap";
+import { logOut } from "./Actions/LoginAndSignup";
 import "./App.css";
 import Login from "./Components/Login";
 import Signup from "./Components/Signup";
@@ -24,45 +13,47 @@ import RestaurantReviews from "./Components/RestaurantReviews";
 // to control display of login links, mapStatetoProps and use a "loggedIn" key
 
 class App extends Component {
-  constructor(props) {
-    super(props);
+  logOut() {
+    localStorage.removeItem("jwt");
+  }
 
-    this.toggle = this.toggle.bind(this);
-    this.state = {
-      isOpen: false
-    };
-  }
-  toggle() {
-    this.setState({
-      isOpen: !this.state.isOpen
-    });
-  }
   render() {
+    let navBar;
+
+    if (this.props.LoggedIn) {
+      navBar = (
+        <Navbar color="light" light expand="md">
+          <NavbarBrand href="/">YELP FEELERS</NavbarBrand>
+          <Nav className="ml-auto" navbar>
+            <NavItem>
+              <NavLink to="/" onClick={this.logOut()}>
+                Log Out
+              </NavLink>
+            </NavItem>
+          </Nav>
+        </Navbar>
+      );
+    } else {
+      navBar = (
+        <Navbar color="light" light expand="md">
+          <NavbarBrand href="/">YELP FEELERS</NavbarBrand>
+          <Nav className="ml-auto" navbar>
+            <NavItem>
+              <NavLink href="/login">LOG IN</NavLink>
+            </NavItem>
+            <NavItem>
+              <NavLink href="/signup">SIGN UP</NavLink>
+            </NavItem>
+          </Nav>
+        </Navbar>
+      );
+    }
+
     return (
       <Router>
         <div className="App">
-          <div>
-            <Navbar color="light" light expand="md">
-              <NavbarBrand href="/">YELP FEELERS</NavbarBrand>
-              <NavbarToggler onClick={this.toggle} />
-              {/* <Collapse isOpen={this.state.isOpen} navbar> */}
-                <Nav className="ml-auto" navbar>
-                  <NavItem>
-                    <NavLink>
-                      <Link to="/">Log In</Link>
-                    </NavLink>
-                  </NavItem>
-                  <NavItem>
-                    <NavLink><Link to="/signup">Sign Up</Link></NavLink>
-                  </NavItem>
-                </Nav>
-              {/* </Collapse> */}
-            </Navbar>
-          </div>
-          <div className="navbar">
-            <br />
-          </div>
-          <Route path="/" exact component={Login} />
+          <div>{navBar}</div>
+          <Route path="/login" exact component={Login} />
           <Route path="/signup" component={Signup} />
           <PrivateRoute exact path="/restaurants" component={RestaurantList} />
           <PrivateRoute path="/restaurants/:id" component={RestaurantReviews} />
@@ -72,4 +63,11 @@ class App extends Component {
   }
 }
 
-export default App;
+const mapStateToProps = state => ({
+  loggedIn: state.loggedIn
+});
+
+export default connect(
+  mapStateToProps,
+  { logOut }
+)(App);

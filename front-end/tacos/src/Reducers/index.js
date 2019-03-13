@@ -4,7 +4,8 @@ import {
   LOGIN_ERROR,
   SIGNUP_START,
   SIGNUP_SUCCESS,
-  SIGNUP_ERROR
+  SIGNUP_ERROR,
+  LOG_OUT
 } from "../Actions/LoginAndSignup";
 import {
   FETCHING_RESTAURANTS,
@@ -14,16 +15,14 @@ import {
 } from "../Actions/DataFetching";
 
 const initialState = {
-  yelpData: [],
+  restaurants: [],
   reviews: [],
-  //interstitial states to conditionally render spinners and stuff
   loggedIn: false,
   loggingIn: false,
   signingUp: false,
   fetchingTacos: true,
   error: null,
   token: localStorage.getItem("jwt")
-  //placeholder till we figure out what sort of App we're building
 };
 
 const reducer = (state = initialState, action) => {
@@ -58,7 +57,8 @@ const reducer = (state = initialState, action) => {
       return {
         ...state,
         error: null,
-        signingUp: false
+        signingUp: false,
+        loggedIn: true
       };
     case SIGNUP_ERROR:
       return {
@@ -75,7 +75,7 @@ const reducer = (state = initialState, action) => {
       return {
         ...state,
         fetchingTacos: false,
-        yelpData: action.payload,
+        restaurants: action.payload,
         reviews: []
       };
     case FETCHING_REVIEWS:
@@ -88,6 +88,11 @@ const reducer = (state = initialState, action) => {
         ...state,
         reviews: action.payload,
         fetchingReviews: false
+      };
+    case LOG_OUT:
+      return {
+        ...state,
+        loggedIn: false
       };
     default:
       return state;

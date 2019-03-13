@@ -16,7 +16,7 @@ const PrivateRoute = ({ component: Component, ...rest }) => {
           <Component {...props} />
         ) : (
 // this needs an error message to explain what's going on
-          <Redirect to="/" />
+          <Redirect to="/login" />
         )
       }
     />

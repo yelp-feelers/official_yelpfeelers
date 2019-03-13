@@ -17,7 +17,7 @@ class RestaurantList extends Component {
       <>
         <h1>PROTECTED TACO ROUTE</h1>
         <div className="main-container">
-          {this.props.yelpData.map(restaurant => (
+          {this.props.restaurants.map(restaurant => (
             <Restaurant restaurant={restaurant} key={restaurant.id}/>
           ))}
         </div>
@@ -27,7 +27,7 @@ class RestaurantList extends Component {
 }
 
 const mapStateToProps = state => ({
-  yelpData: state.yelpData
+  restaurants: state.restaurants
 });
 
 export default connect(
