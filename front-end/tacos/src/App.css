@@ -9,3 +9,8 @@
   align-items: flex-start;
 }
  */
+
+ .star-container {
+   display: flex;
+   justify-content: space-evenly;
+ }

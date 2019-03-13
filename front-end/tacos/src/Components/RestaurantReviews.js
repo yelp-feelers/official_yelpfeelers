@@ -12,17 +12,14 @@ class RestaurantReviews extends Component {
 
   componentDidMount() {
     const id = this.props.match.params.id;
-    console.log(this.restaurant);
+    
     this.props.getReviews(id);
   }
 
   render() {
     return (
       <div className="review-container">
-        <div className="review-container-sidebar" />
-        <Link to="/restaurants">
-          <button>Back</button>
-        </Link>
+        
         {this.props.reviews.map(review => (
             <Review review={review} />
         ))}
@@ -33,7 +30,7 @@ class RestaurantReviews extends Component {
 
 const mapStateToProps = state => ({
   reviews: state.reviews,
-  yelpData: state.yelpData
+  restaurants: state.restaurants
 });
 
 export default connect(

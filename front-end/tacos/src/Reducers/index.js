@@ -22,7 +22,7 @@ const initialState = {
   signingUp: false,
   fetchingTacos: true,
   error: null,
-  token: localStorage.getItem("jwt")
+  token: null,
 };
 
 const reducer = (state = initialState, action) => {

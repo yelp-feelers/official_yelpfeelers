@@ -21,12 +21,16 @@ export const getReviews = (id) => dispatch => {
   // get request from server for tacos data
   dispatch({ type: FETCHING_REVIEWS });
 
-  const endpoint = 'https://yelpfeelers-server.herokuapp.com/api/restaurants/:'+id+'/reviews';
+  const endpoint = 'https://yelpfeelers-server.herokuapp.com/api/restaurants/'+id+'/reviews';
   
 
 
   return axios
-    .get(endpoint)
-    .then(res => dispatch({ type: REVIEW_SUCCESS, payload: res.data }))
+    .get(endpoint, { headers: {Authorization: localStorage.getItem("jwt")}})
+    .then(res => dispatch({ type: REVIEW_SUCCESS, payload: res.data.reviews }))
     .catch(err => console.log(err));
 };
+
+
+
+// dispatch({ type: REVIEW_SUCCESS, payload: res.data.reviews }))

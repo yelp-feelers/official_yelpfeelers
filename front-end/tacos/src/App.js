@@ -15,7 +15,7 @@ import RestaurantReviews from "./Components/RestaurantReviews";
 class App extends Component {
   logOut() {
     this.props.logOut()
-    // .then(()=> this.props.history.push('/login'))
+
   }
 
   render() {
@@ -52,7 +52,7 @@ class App extends Component {
     return (
       <Router>
         <div className="App">
-          {this.props.loggedIn ? <div>{loggedInNavBar}</div> : <div>{loggedOutNavBar}</div>}
+          {this.props.token ? <div>{loggedInNavBar}</div> : <div>{loggedOutNavBar}</div>}
           <Route path="/" exact component={Login} />
           <Route path="/login" exact component={Login} />
           <Route path="/signup" component={Signup} />
@@ -65,7 +65,8 @@ class App extends Component {
 }
 
 const mapStateToProps = state => ({
-  loggedIn: state.loggedIn
+  loggedIn: state.loggedIn,
+  token: state.token
 });
 
 export default connect(

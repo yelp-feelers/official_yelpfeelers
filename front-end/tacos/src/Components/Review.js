@@ -1,14 +1,33 @@
-import React from 'react';
+import React from "react";
+import { Jumbotron, Button } from "reactstrap";
+import { Link } from 'react-router-dom'
 
-const Review = (props) => {
-    return (
-        <div>
-            {/* placeholders for review data below */}
-           <h1>{this.props.author}</h1> 
-           <h2>{this.props.date}</h2>
-           <p>{this.props.text}</p>
+const Review = props => {
+  return (
+    <div>
+      <Jumbotron>
+        <h3>{props.review.reviewer.username}</h3>
+        <p>
+          {props.review.review}
+        </p>
+        <hr className="my-2" />
+        <div className="star-container">
+            <p>Normal Rating:
+                <br/>
+                {props.review.score} stars
+            </p>
+            <p>Adjusted Rating:
+                <br/>
+                {props.review.adju_score} stars
+            </p>
         </div>
-    );
+        
+        <p className="lead">
+        <Link to="/restaurants"><Button color="primary">Go Back</Button></Link>
+        </p>
+      </Jumbotron>
+    </div>
+  );
 };
 
 export default Review;
