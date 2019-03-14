@@ -27,12 +27,11 @@ signUpButton.style.width = '90%';
 signUpButton.addEventListener('mouseover', function(callback){
   callback.target.style.backgroundColor = 'black';
   callback.target.style.color = 'white';
-  callback.target.style.width = '32%';
+  callback.target.style.width = '38%';
   callback.target.style.transition = '3s';
 });
 
 
-//this calls an ettor in the console but it still functions
 const sections = document.querySelector('.about-middle-content');
 sections.addEventListener('mouseover', function (call){
   call.target.style.backgroundColor = 'black';
