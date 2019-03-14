@@ -1,13 +1,14 @@
 import React, { Component } from "react";
 import { signup } from "../Actions/LoginAndSignup";
 import { connect } from "react-redux";
+import { Button } from 'reactstrap';
 
 class Signup extends Component {
   state = {
     credentials: {
       username: "",
       password: ""
-    }
+    },
   };
 
   handleChanges = e => {
@@ -22,12 +23,14 @@ class Signup extends Component {
   signup = e => {
     e.preventDefault();
     this.props.signup(this.state.credentials)
-    .then(()=> this.props.history.push('/protected'))
+    .then(()=> this.props.history.push('/restaurants'))
   };
 
   render() {
     return (
       <div>
+        <br />
+        <br />
         <form onSubmit={this.signup}>
           <input
             name="username"
@@ -37,15 +40,18 @@ class Signup extends Component {
             onChange={this.handleChanges}
           />
           <br />
+          <br />
           <input
             name="password"
-            type="text"
+            type="password"
             placeholder="password"
             value={this.state.credentials.password}
             onChange={this.handleChanges}
           />
           <br />
-          <button>SIGN UP</button>
+          {this.props.error && <p className="error">{this.props.error}</p>}
+          <br />
+          <Button color="primary" type="submit">SIGN UP</Button>
         </form>
       </div>
     );
