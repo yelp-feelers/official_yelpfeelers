@@ -12,11 +12,11 @@ const Review = props => {
         </p>
         <hr className="my-2" />
         <div className="star-container">
-            <p>Normal Rating:
+            <p>Original Score:
                 <br/>
                 {props.review.score} stars
             </p>
-            <p>Adjusted Rating:
+            <p>Adjusted Score:
                 <br/>
                 {props.review.adju_score} stars
             </p>

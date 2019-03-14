@@ -50,7 +50,7 @@ class App extends Component {
       <Router>
         <div className="App">
           {this.props.token ? (
-            <div>{loggedInNavBar}</div>
+            <div className="navBar">{loggedInNavBar}</div>
           ) : (
             <div>{loggedOutNavBar}</div>
           )}

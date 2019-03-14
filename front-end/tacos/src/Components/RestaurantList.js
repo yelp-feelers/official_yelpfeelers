@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { getRestaurants, sortByAdju } from "../Actions/DataFetching";
-import { CardColumns, CardGroup, Spinner, Button } from "reactstrap";
+import { CardGroup, Spinner, Button } from "reactstrap";
 
 import Restaurant from "./Restaurant";
 
@@ -34,12 +34,14 @@ class RestaurantList extends Component {
           </div>
         ) : (
           <div className="restaurant-content">
+            <div className="intro-copy">
             <h1>The Best Tacos Near You</h1>
             <h3>
               Tacos are important. When you're deciding where to eat, do you trust the ratings?
             </h3>
             <h4> We read between the lines. Our proprietary natural language processing parses thousands of reviews to tell you what people really think of your local taco joint.
               </h4>
+              </div>
             <div className="toggle-button-container">
               <Button onClick={this.sortByTrue}>Sort by Original Score</Button>
               {/* <br></br>
