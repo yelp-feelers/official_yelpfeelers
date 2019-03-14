@@ -148,6 +148,9 @@ header nav a:hover {
     height: 200px;
   }
 }
+.sign .button {
+  color: #000000;
+}
 .middle {
   margin: 20px;
   display: flex;
