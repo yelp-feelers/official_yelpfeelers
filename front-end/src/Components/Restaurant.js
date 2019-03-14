@@ -25,13 +25,14 @@ const Restaurant = props => {
 
           <div className="star-container">
             <CardText>
-              Normal Rating:
+              Normal Score:
               <br />
               {props.restaurant.true_score} stars
             </CardText>
+            <br/>
             {/* the below both need to be adjusted when real data comes in  */}
             <CardText>
-              Adjusted Rating:
+              Adjusted Score:
               <br />
                {props.restaurant.adju_score} stars
             </CardText>

@@ -15,13 +15,10 @@ import RestaurantReviews from "./Components/RestaurantReviews";
 class App extends Component {
   logOut = e => {
     e.preventDefault();
-    this.props.logOut()
-
-  }
+    this.props.logOut();
+  };
 
   render() {
-    console.log(this.props.loggedIn);
-
     let loggedInNavBar = (
       <Navbar color="light" light expand="md">
         <NavbarBrand href="/restaurants">YELP FEELERS</NavbarBrand>
@@ -36,24 +33,27 @@ class App extends Component {
     );
 
     let loggedOutNavBar = (
-        <Navbar color="light" light expand="md">
-          <NavbarBrand href="/restaurants">YELP FEELERS</NavbarBrand>
-          <Nav className="ml-auto" navbar>
-            <NavItem>
-              <NavLink href="/login">LOG IN</NavLink>
-            </NavItem>
-            <NavItem>
-              <NavLink href="/signup">SIGN UP</NavLink>
-            </NavItem>
-          </Nav>
-        </Navbar>
-      );
-    
+      <Navbar color="light" light expand="md">
+        <NavbarBrand href="/restaurants">YELP FEELERS</NavbarBrand>
+        <Nav className="ml-auto" navbar>
+          <NavItem>
+            <NavLink href="/login">LOG IN</NavLink>
+          </NavItem>
+          <NavItem>
+            <NavLink href="/signup">SIGN UP</NavLink>
+          </NavItem>
+        </Nav>
+      </Navbar>
+    );
 
     return (
       <Router>
         <div className="App">
-          {this.props.token ? <div>{loggedInNavBar}</div> : <div>{loggedOutNavBar}</div>}
+          {this.props.token ? (
+            <div className="navBar">{loggedInNavBar}</div>
+          ) : (
+            <div>{loggedOutNavBar}</div>
+          )}
           <Route path="/" exact component={Login} />
           <Route path="/login" exact component={Login} />
           <Route path="/signup" component={Signup} />

@@ -28,7 +28,7 @@ class Login extends Component {
 
   render() {
     return (
-      <div>
+      <div className="login-div">
         <br />
         <br />
         <form onSubmit={this.login}>
