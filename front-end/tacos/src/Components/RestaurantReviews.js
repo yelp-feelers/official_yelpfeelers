@@ -14,6 +14,7 @@ class RestaurantReviews extends Component {
     const id = this.props.match.params.id;
     
     this.props.getReviews(id);
+    console.log(this.props.restaurants)
   }
 
   render() {

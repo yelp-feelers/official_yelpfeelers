@@ -12,25 +12,45 @@ export const getRestaurants = () => dispatch => {
   const endpoint = "https://yelpfeelers-server.herokuapp.com/api/restaurants";
 
   return axios
-    .get(endpoint, { headers: {Authorization: localStorage.getItem("jwt")}})
-    .then(res => dispatch({ type: RESTAURANT_SUCCESS, payload: res.data }))
+    .get(endpoint, { headers: { Authorization: localStorage.getItem("jwt") } })
+    .then(res =>
+      dispatch({
+        type: RESTAURANT_SUCCESS,
+        payload: res.data.sort((a, b) => (a.true_score < b.true_score ? 1 : (a.true_score===b.true_score) ? ((a.name > b.name) ? 1 : -1) : -1))
+      })
+    )
     .catch(err => console.log(err));
 };
 
-export const getReviews = (id) => dispatch => {
+export const getReviews = id => dispatch => {
   // get request from server for tacos data
   dispatch({ type: FETCHING_REVIEWS });
 
-  const endpoint = 'https://yelpfeelers-server.herokuapp.com/api/restaurants/'+id+'/reviews';
-  
-
+  const endpoint =
+    "https://yelpfeelers-server.herokuapp.com/api/restaurants/" +
+    id +
+    "/reviews";
 
   return axios
-    .get(endpoint, { headers: {Authorization: localStorage.getItem("jwt")}})
+    .get(endpoint, { headers: { Authorization: localStorage.getItem("jwt") } })
     .then(res => dispatch({ type: REVIEW_SUCCESS, payload: res.data.reviews }))
     .catch(err => console.log(err));
 };
 
+//
 
+export const sortByAdju = () => dispatch => {
+  dispatch({ type: FETCHING_RESTAURANTS });
 
-// 
+  const endpoint = "https://yelpfeelers-server.herokuapp.com/api/restaurants";
+
+  return axios
+    .get(endpoint, { headers: { Authorization: localStorage.getItem("jwt") } })
+    .then(res =>
+      dispatch({
+        type: RESTAURANT_SUCCESS,
+        payload: res.data.sort((a, b) => (a.adju_score < b.adju_score ? 1 : (a.adju_score===b.adju_score) ? ((a.name > b.name) ? 1 : -1) : -1))
+      })
+    )
+    .catch(err => console.log(err));
+}
